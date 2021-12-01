@@ -1,5 +1,6 @@
 class MyLinkedList:
     def __init__(self):
+        
         self.head = None
         self.length = 0
 
