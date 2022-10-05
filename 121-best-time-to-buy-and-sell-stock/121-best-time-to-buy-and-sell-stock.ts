@@ -10,6 +10,4 @@ function maxProfit(prices: number[]): number {
     }
 
     return max_profits;
-
-    return max_profits;
 }
