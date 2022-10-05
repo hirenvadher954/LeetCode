@@ -17,11 +17,15 @@ function detectCycle(head: ListNode | null): ListNode | null {
         fast = fast.next.next;
         if (slow === fast) break;
     }
+    
+    //[1,-1] 0
     if (!fast || !fast.next) {
         return null;
     }
+    
     slow = head;
-    while (slow !== fast) {
+    // [-1,-7,7,-4,19,6,-9,-5,-2,-5] 6
+    while (slow !== fast) { 
         slow = slow.next;
         fast = fast.next;
     }
