@@ -1,3 +1,3 @@
-SELECT user_id, CONCAT(UPPER(LEFT(name,1)),LOWER(RIGHT(name,LENGTH(name)-1))) AS name
+SELECT user_id, concat(upper(substring(name,1,1)),lower(substring(name,2))) AS name
 FROM Users
 ORDER BY user_id ASC;
