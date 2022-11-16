@@ -13,10 +13,7 @@ function setZeroes(matrix: number[][]): void {
     }
     for (let i = 0; i < row; i++) {
         for (let j = 0; j < col; j++) {
-            if (rows_zero.includes(i)) {
-                matrix[i] = Array(col).fill(0);
-            }
-            if (col_zero.includes(j)) {
+            if (rows_zero.includes(i) || col_zero.includes(j)) {
                 matrix[i][j] = 0;
             }
         }
