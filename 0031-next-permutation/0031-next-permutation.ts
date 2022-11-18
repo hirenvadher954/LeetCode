@@ -8,7 +8,7 @@ function nextPermutation(nums: number[]): void {
     }
 
     if (index === -1) {
-        nums.sort((a, b) => a - b);
+        nums.reverse();
         return;
     }
 
