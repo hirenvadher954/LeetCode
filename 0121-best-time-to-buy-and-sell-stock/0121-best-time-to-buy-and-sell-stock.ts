@@ -5,7 +5,7 @@ function maxProfit(prices: number[]): number {
         if(prices[i]<=buy){
             buy = prices[i];
         }
-        else if(prices[i] - buy >= profit){
+        if(prices[i] - buy >= profit){
             profit = prices[i] - buy;
         }
     }
