@@ -2,5 +2,29 @@
  Do not return anything, modify nums in-place instead.
  */
 function sortColors(nums: number[]): void {
-nums.sort();
+    let low = 0;
+    let mid = 0;
+    let high = nums.length - 1;
+    
+    while(mid<=high){
+        switch(nums[mid]){
+            case 0:
+                swap(low,mid)
+                low++;
+                mid++;
+                break;
+            case 1:
+                mid++;
+                break;
+            case 2:
+                swap(high,mid)
+                high--;
+                break;
+                
+        }
+    }
+
+    function swap(i,j){
+        [nums[i],nums[j]] = [nums[j],nums[i]]
+    }
 };
