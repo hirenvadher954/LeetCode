@@ -9,16 +9,13 @@ function sortColors(nums: number[]): void {
     while(mid<=high){
         switch(nums[mid]){
             case 0:
-                swap(low,mid)
-                low++;
-                mid++;
+                swap(low++,mid++)
                 break;
             case 1:
                 mid++;
                 break;
             case 2:
-                swap(high,mid)
-                high--;
+                swap(high--,mid)
                 break;
                 
         }
