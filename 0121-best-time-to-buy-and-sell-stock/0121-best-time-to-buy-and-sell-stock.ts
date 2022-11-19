@@ -1,12 +1,13 @@
 function maxProfit(prices: number[]): number {
     let buy = prices[0];
-    let max_profits = 0;
-    for (let i = 0; i < prices.length; i++) {
-        if (prices[i] <= buy)
+    let profit = 0;
+    for(let i = 0; i < prices.length;i++){
+        if(prices[i]<=buy){
             buy = prices[i];
-        else if (prices[i] - buy > max_profits)
-            max_profits = prices[i] - buy;
+        }
+        else if(prices[i] - buy >= profit){
+            profit = prices[i] - buy;
+        }
     }
-
-    return max_profits;
+    return profit;
 }
