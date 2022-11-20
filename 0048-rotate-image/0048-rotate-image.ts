@@ -3,7 +3,6 @@ function rotate(matrix: number[][]): void {
     
     for (let i = 0; i < n; i++) {
         for (let j = i; j < n; j++) {
-            console.log(i,j);
             [matrix[i][j], matrix[j][i]] = [matrix[j][i], matrix[i][j]];
         }
     }
