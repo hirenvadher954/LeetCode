@@ -1,15 +1,16 @@
 function majorityElement(nums: number[]): number {
-    let counts = {};
-    let n = nums.length;
-    
+    let count = 0;
+    let candidate = 0;
+
     for (const num of nums) {
-        counts[num] = counts[num] ? counts[num] + 1 : 1;
-    }
-    
-    let major = Math.ceil(n / 2);
-    for (let key in counts) {
-        if (counts[key] >= major) {
-            return parseInt(key);
+        if (count == 0) {
+            candidate = num;
+            count = 1;
+        } else if (num == candidate) {
+            count++;
+        } else {
+            count--;
         }
     }
+    return candidate;
 }
