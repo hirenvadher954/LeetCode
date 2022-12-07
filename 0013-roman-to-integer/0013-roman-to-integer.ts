@@ -11,9 +11,11 @@ function romanToInt(s: string): number {
 
    let sum = 0;
    for(let i = 0; i<s.length;i++){
+       
        if(obj[s[i]]<obj[s[i+1]]){
            sum-=obj[s[i]];
        }
+
        else{sum+=obj[s[i]];} 
    }
     return sum;
