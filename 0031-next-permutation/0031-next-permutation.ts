@@ -18,9 +18,7 @@ function nextPermutation(nums: number[]): void {
             break;
         }
     }
-
     reverse(index + 1);
-
     function swap(i: number, j: number) {
         [nums[i], nums[j]] = [nums[j], nums[i]];
     }
