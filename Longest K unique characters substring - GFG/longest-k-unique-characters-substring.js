@@ -65,35 +65,28 @@ function main() {
 
 class Solution {
     longestKSubstr(s, k) {
-           if([...new Set(s)].join('').length < k){
+        if([...new Set(s)].join('').length < k){
             return -1;
         }
-    let windowStart = 0,
-        maxLength = 0,
-        charFrequency = {};
-
-    // in the following loop we'll try to extend the range [window_start, window_end]
-    for (let windowEnd = 0; windowEnd < s.length; windowEnd++) {
-        const rightChar = s[windowEnd];
-        if (!(rightChar in charFrequency)) {
-            charFrequency[rightChar] = 0;
-        }
-        charFrequency[rightChar] += 1;
-        // shrink the sliding window, until we are left with 'k' distinct characters in 
-        // the char_frequency
-        while (Object.keys(charFrequency).length > k) {
-            const leftChar = s[windowStart];
-            charFrequency[leftChar] -= 1;
-            if (charFrequency[leftChar] === 0) {
-                delete charFrequency[leftChar];
+        let cf = {};
+        let max_len = 0;
+        let window_start = 0;
+        for(let i = 0; i< s.length; i++){
+            if(!(s[i] in cf)){
+                cf[s[i]] = 0;
             }
-            windowStart += 1; // shrink the window
+            cf[s[i]]+=1;
+            while(Object.keys(cf).length>k){
+                cf[s[window_start]]-=1;
+                if(cf[s[window_start]]==0){
+                    delete cf[s[window_start]];
+                }
+                window_start+=1;
+            }
+            max_len = Math.max(max_len,i-window_start+1);
+            
         }
-        // remember the maximum length so far
-        maxLength = Math.max(maxLength, windowEnd - windowStart + 1);
-    }
-
-    return maxLength;
+        return max_len;
         
     }
 }
